@@ -25,8 +25,10 @@ class ArticleController extends Controller
 
     public function show(Article $article): JsonResponse
     { // 公告详情
-        $articleService = new ArticleService($article);
+        $content = cache()->remember("article.content.{$article->id}", 3600, function () use ($article) {
+            return (new ArticleService($article))->getContent();
+        });
 
-        return response()->json(['title' => $article->title, 'content' => $articleService->getContent()]);
+        return response()->json(['title' => $article->title, 'content' => $content]);
     }
 }

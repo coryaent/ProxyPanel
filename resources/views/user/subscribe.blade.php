@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-6 col-md-3 mb-2">
                                 <div class="info-label"><i class="fa fa-gauge-high text-primary"></i> {{ trans('user.attribute.data') }}</div>
-                                <div class="info-value text-info">{{ $user->used_traffic / GiB }} / {{ $user->transfer_enable_formatted }}</div>
+                                <div class="info-value text-info">{{ number_format($user->used_traffic / GiB, 2) }} / {{ $user->transfer_enable_formatted }}</div>
                             </div>
                         </div>
                     </div>

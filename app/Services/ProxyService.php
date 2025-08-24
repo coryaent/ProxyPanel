@@ -8,6 +8,7 @@ use App\Utils\Clients\Protocols\Text;
 use App\Utils\Clients\Protocols\URLSchemes;
 use Arr;
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 use ReflectionClass;
 use RuntimeException;
 
@@ -50,7 +51,7 @@ class ProxyService
         return self::$servers ?? [];
     }
 
-    public function getNodeList(?int $type = null, bool $isConfig = true): array
+    public function getNodeList(?int $type = null, bool $isConfig = true): array|Collection
     {
         $query = $this->getUser()->nodes()->whereIn('is_display', [2, 3]); // 获取这个账号可用节点
 
