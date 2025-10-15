@@ -4,9 +4,7 @@
 /public/upload
 /storage/*.key
 /vendor
-.env
-.env.backup
-.env.production
+.env*
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -23,3 +21,4 @@ composer.lock
 .prettierrc
 package-lock.json
 .dockerignore
+
